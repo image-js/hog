@@ -5,8 +5,7 @@ const PI_RAD = 180 / Math.PI;
 
 module.exports = {
   extractHOG: extractHOG,
-  extractHistograms: extractHistograms,
-  extractHOGFromHistograms: extractHOGFromHistograms
+  extractHistograms: extractHistograms
 }
 
 // also export all the functions from processing.js
@@ -14,10 +13,40 @@ for (var func in processing) {
   module.exports[func] = processing[func];
 }
 
+/**
+ * Extract the HOG of an image
+ * @param {image} Image - image to transform into a HOG descriptor
+ * @param {object} options
+ * @return {Array} Array with the value of the HOG descriptor
+ */
+
 function extractHOG(image, options = {}) {
+  var blockSize = options.blockSize || 2;
+  var blockStride = options.blockStride || (blockSize / 2);
+  var norm = options.norm || "L2";
+
   var histograms = extractHistograms(image, options);
-  return extractHOGFromHistograms(histograms, options);
+
+  var blocks = [];
+  var blocksHigh = histograms.length - blockSize + 1;
+  var blocksWide = histograms[0].length - blockSize + 1;
+
+  for (var y = 0; y < blocksHigh; y += blockStride) {
+    for (var x = 0; x < blocksWide; x += blockStride) {
+      var block = getBlock(histograms, x, y, blockSize);
+      normalize(block, norm);
+      blocks.push(block);
+    }
+  }
+  return Array.prototype.concat.apply([], blocks);
 }
+
+/**
+ * Extract the histogram from an image
+ * @param {image} Image - image to transform into a HOG descriptor
+ * @param {object} options
+ * @return {Array 2D} Array 2D with the histogram, based on the gradient vectors
+ */
 
 function extractHistograms(image, options = {}) {
   var vectors = processing.gradientVectors(image);
@@ -41,27 +70,14 @@ function extractHistograms(image, options = {}) {
   return histograms;
 }
 
-/* This function is decoupled so you can extract histograms for an entire image
- * to save recomputation, and use these to get HOGs from individual windows
+/**
+ * Extract a sqare block from a matrix
+ * @param {Array 2D} Matrix
+ * @param {number} x
+ * @param {number} y
+ * @param {number} length
+ * @return {Array 2D} square block extracted from the matrix
  */
-function extractHOGFromHistograms(histograms, options) {
-  var blockSize = options.blockSize || 2;
-  var blockStride = options.blockStride || (blockSize / 2);
-  var norm = options.norm || "L2";
-
-  var blocks = [];
-  var blocksHigh = histograms.length - blockSize + 1;
-  var blocksWide = histograms[0].length - blockSize + 1;
-
-  for (var y = 0; y < blocksHigh; y += blockStride) {
-    for (var x = 0; x < blocksWide; x += blockStride) {
-      var block = getBlock(histograms, x, y, blockSize);
-      normalize(block, norm);
-      blocks.push(block);
-    }
-  }
-  return Array.prototype.concat.apply([], blocks);
-}
 
 function getBlock(matrix, x, y, length) {
   var square = [];
