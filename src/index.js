@@ -89,6 +89,16 @@ function getBlock(matrix, x, y, length) {
   return Array.prototype.concat.apply([], square);
 }
 
+/**
+ * Extract the histogram of a part of the image (a cell with coordinate x and y)
+ * @param {Array 2D} elements - gradient vectors of the image
+ * @param {number} x
+ * @param {number} y
+ * @param {number} size - cellSize
+ * @param {number} bins - number of bins per histogram
+ * @return {Array 1D} Array 1D with the histogram of the cell, based on the gradient vectors
+ */
+
 function getHistogram(elements, x, y, size, bins) {
   var histogram = zeros(bins);
 
@@ -123,6 +133,12 @@ function zeros(size) {
   }
   return array;
 }
+
+/**
+ * Normalize a vector given with one of these norms : L1, L1-sqrt or L2 (norm by default). No return value, the input vector is modified.
+ * @param {Array 1D} vector
+ * @param {string} norm - should be "L1", "L1-sqrt" or "L2". Else, the norm will be the norm L2.
+ */
 
 function normalize(vector, norm){
   var epsilon = 0.00001;
