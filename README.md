@@ -27,8 +27,19 @@ __options__
 
 ## Example
 
-See the file [test/test-main.js](https://github.com/image-js/hog/test), which takes the path of an image and return the HOG descriptor as a vector.
+```js
+'use strict';
 
+const {default: Image} = require('image-js');
+const hog = require('hog-descriptor');
+
+var file = __dirname + '/__test__/beachball.jpg';
+
+Image.load(file).then(function (image) {
+    var descriptor = hog.extractHOG(image);
+    console.log(descriptor);
+});
+```
 
 ## License
 
