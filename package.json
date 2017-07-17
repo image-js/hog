@@ -3,10 +3,18 @@
     "description": "Histogram of Oriented Gradients (HOG) descriptor extractor",
     "version": "0.5.0",
     "author": "jajoe",
-    "main": "./hog",
+    "main": "lib/index.js",
+    "module": "src/index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/image-js/hog"
+    },
+    "scripts": {
+        "eslint": "eslint src",
+        "eslint-fix": "npm run eslint -- --fix",
+        "prepublish": "rollup -c",
+        "test": "run-s testonly",
+        "testonly": "jest"
     },
     "dependencies": {
         "image-js": "^0.11.5",

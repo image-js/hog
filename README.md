@@ -1,10 +1,15 @@
 # HOG feature descriptor (Histogram of oriented gradients)
 
+## Principe
+
+The main feature of this repository will compute the [HOG descriptor](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients) of an image. The HOG descriptors are useful for image recognition and image detection. You can find a good tutorial about HOG descriptors [here](http://mccormickml.com/2013/05/09/hog-person-detector-tutorial/).
+
+
 ## Usage
 
 ### extractHOG(image[, options])
 
-Generate a vector which corresponds to the HOG descriptor of an image [HOG feature descriptor](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients).  
+Generate a vector which corresponds to the HOG descriptor of an image.
 Returns an array of float.
 
 __arguments__
@@ -22,7 +27,8 @@ __options__
 
 ## Example
 
-See the file [test/test-hog.js](https://github.com/image-js/hog/test).
+See the file [test/test-main.js](https://github.com/image-js/hog/test), which takes the path of an image and return the HOG descriptor as a vector.
+
 
 ## License
 
