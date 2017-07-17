@@ -22,9 +22,11 @@ for (var func in processing) {
  */
 
 function extractHOG(image, options = {}) {
-    var blockSize = options.blockSize || 2;
-    var blockStride = options.blockStride || (blockSize / 2);
-    var norm = options.norm || 'L2';
+    const {
+        blockSize = 2,
+        norm = 'L2'
+    } = options;
+    const blockStride = options.blockStride || (blockSize / 2);
 
     var histograms = extractHistograms(image, options);
 
