@@ -24,9 +24,9 @@ for (var func in processing) {
 function extractHOG(image, options = {}) {
     const {
         blockSize = 2,
+        blockStride = blockSize / 2,
         norm = 'L2'
     } = options;
-    const blockStride = options.blockStride || (blockSize / 2);
 
     var histograms = extractHistograms(image, options);
 
