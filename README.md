@@ -30,7 +30,7 @@ __options__
 ```js
 'use strict';
 
-const {default: Image} = require('image-js');
+const {Image} = require('image-js');
 const hog = require('hog-descriptor');
 
 var file = __dirname + '/__test__/beachball.jpg';
