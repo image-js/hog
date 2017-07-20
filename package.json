@@ -1,7 +1,7 @@
 {
   "name": "hog-features",
   "description": "Histogram of Oriented Gradients (HOG) descriptor extractor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "jajoe",
   "main": "src/index.js",
   "files": [
