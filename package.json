@@ -1,30 +1,31 @@
 {
-    "name": "hog-descriptor",
-    "description": "Histogram of Oriented Gradients (HOG) descriptor extractor",
-    "version": "0.5.0",
-    "author": "jajoe",
-    "main": "src/index.js",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/image-js/hog"
-    },
-    "scripts": {
-        "eslint": "eslint src",
-        "eslint-fix": "npm run eslint -- --fix",
-        "test": "run-s testonly eslint",
-        "testonly": "jest"
-    },
-    "devDependencies": {
-        "eslint": "^4.1.1",
-        "eslint-config-cheminfo": "^1.6.0",
-        "eslint-plugin-no-only-tests": "^2.0.0",
-        "image-js": "^0.11.5",
-        "jest": "^20.0.4",
-        "ml-distance": "^2.1.1",
-        "npm-run-all": "^4.0.2"
-    },
-    "keywords": [
-        "image processing",
-        "computer vision"
-    ]
+  "name": "hog-features",
+  "description": "Histogram of Oriented Gradients (HOG) descriptor extractor",
+  "version": "0.0.0",
+  "author": "jajoe",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/image-js/hog"
+  },
+  "scripts": {
+    "eslint": "eslint src",
+    "eslint-fix": "npm run eslint -- --fix",
+    "test": "run-s testonly eslint",
+    "testonly": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-config-cheminfo": "^1.6.0",
+    "eslint-plugin-no-only-tests": "^2.0.0",
+    "image-js": "^0.11.5",
+    "jest": "^20.0.4",
+    "ml-distance": "^2.1.1",
+    "npm-run-all": "^4.0.2"
+  },
+  "keywords": [
+    "image processing",
+    "computer vision"
+  ],
+  "license": "MIT"
 }

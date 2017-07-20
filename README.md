@@ -33,7 +33,7 @@ __options__
 const {Image} = require('image-js');
 const hog = require('hog-descriptor');
 
-var file = __dirname + '/__test__/beachball.jpg';
+var file = __dirname + '/__test__/beachball.png';
 
 Image.load(file).then(function (image) {
     var descriptor = hog.extractHOG(image);
