@@ -103,7 +103,7 @@ function getBlock(matrix, x, y, length) {
  */
 
 function getHistogram(elements, x, y, size, bins) {
-    var histogram = zeros(bins);
+    var histogram = new Array(bins).fill(0);
 
     for (var i = 0; i < size; i++) {
         for (var j = 0; j < size; j++) {
@@ -128,14 +128,6 @@ function binFor(radians, bins) {
     return Math.floor(angle / 180 * bins);
 }
 
-function zeros(size) {
-    var array = new Array(size);
-    for (var i = 0; i < size; i++) {
-        array[i] = 0;
-    }
-    return array;
-}
-
 /**
  * Normalize a vector given with one of these norms : L1, L1-sqrt or L2 (norm by default). No return value, the input vector is modified.
  * @param {Array<number>} vector
@@ -144,33 +136,34 @@ function zeros(size) {
 
 function normalize(vector, norm) {
     var epsilon = 0.00001;
+    var sum, denom, i;
     if (norm === 'L1') {
-        var norm = 0;
-        for (var i = 0; i < vector.length; i++) {
-            norm += Math.abs(vector[i]);
+        sum = 0;
+        for (i = 0; i < vector.length; i++) {
+            sum += Math.abs(vector[i]);
         }
-        var denom = norm + epsilon;
+        denom = sum + epsilon;
 
-        for (var i = 0; i < vector.length; i++) {
+        for (i = 0; i < vector.length; i++) {
             vector[i] /= denom;
         }
     } else if (norm === 'L1-sqrt') {
-        var norm = 0;
-        for (var i = 0; i < vector.length; i++) {
-            norm += Math.abs(vector[i]);
+        sum = 0;
+        for (i = 0; i < vector.length; i++) {
+            sum += Math.abs(vector[i]);
         }
-        var denom = norm + epsilon;
+        denom = sum + epsilon;
 
-        for (var i = 0; i < vector.length; i++) {
+        for (i = 0; i < vector.length; i++) {
             vector[i] = Math.sqrt(vector[i] / denom);
         }
     } else { // i.e norm === "L2"
-        var sum = 0;
-        for (var i = 0; i < vector.length; i++) {
-            sum += Math.pow(vector[i], 2);
+        sum = 0;
+        for (i = 0; i < vector.length; i++) {
+            sum += vector[i] * vector[i];
         }
-        var denom = Math.sqrt(sum + epsilon);
-        for (var i = 0; i < vector.length; i++) {
+        denom = Math.sqrt(sum + epsilon);
+        for (i = 0; i < vector.length; i++) {
             vector[i] /= denom;
         }
     }
