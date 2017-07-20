@@ -15,15 +15,13 @@
         "test": "run-s testonly eslint",
         "testonly": "jest"
     },
-    "dependencies": {
-        "image-js": "^0.11.5",
-        "ml-distance": "^2.1.1"
-    },
     "devDependencies": {
         "eslint": "^4.1.1",
         "eslint-config-cheminfo": "^1.6.0",
         "eslint-plugin-no-only-tests": "^2.0.0",
+        "image-js": "^0.11.5",
         "jest": "^20.0.4",
+        "ml-distance": "^2.1.1",
         "npm-run-all": "^4.0.2"
     },
     "keywords": [
