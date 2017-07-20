@@ -56,10 +56,10 @@ function _gradientVectors(intensities) {
     for (var y = 0; y < height; y++) {
         vectors[y] = new Array(width);
         for (var x = 0; x < width; x++) {
-            var prevX = x === 0 ? 0 : intensities.getValueXY(x - 1, y, 1) / maxValue;
-            var nextX = x === width - 1 ? 0 : intensities.getValueXY(x + 1, y, 1) / maxValue;
-            var prevY = y === 0 ? 0 : intensities.getValueXY(x, y - 1, 1) / maxValue;
-            var nextY = y === height - 1 ? 0 : intensities.getValueXY(x, y + 1, 1) / maxValue;
+            var prevX = x === 0 ? 0 : intensities.getValueXY(x - 1, y, 0) / maxValue;
+            var nextX = x === width - 1 ? 0 : intensities.getValueXY(x + 1, y, 0) / maxValue;
+            var prevY = y === 0 ? 0 : intensities.getValueXY(x, y - 1, 0) / maxValue;
+            var nextY = y === height - 1 ? 0 : intensities.getValueXY(x, y + 1, 0) / maxValue;
 
             // kernel [-1, 0, 1]
             var gradX = -prevX + nextX;
