@@ -1,8 +1,8 @@
-# HOG feature descriptor (Histogram of oriented gradients)
+# HOG features (Histogram of oriented gradients)
 
 ## Principe
 
-The main feature of this repository will compute the [HOG descriptor](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients) of an image. The HOG descriptors are useful for image recognition and image detection. You can find a good tutorial about HOG descriptors [here](http://mccormickml.com/2013/05/09/hog-person-detector-tutorial/).
+The main feature of this repository will compute the [HOG features](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients) of an image. The HOG features (called HOG descriptor too) are useful for image recognition and image detection. You can find a good tutorial about HOG features [here](http://mccormickml.com/2013/05/09/hog-person-detector-tutorial/).
 
 
 ## Usage
@@ -31,7 +31,7 @@ __options__
 'use strict';
 
 const {Image} = require('image-js');
-const hog = require('hog-descriptor');
+const hog = require('hog-features');
 
 var file = __dirname + '/__test__/beachball.png';
 
@@ -40,6 +40,10 @@ Image.load(file).then(function (image) {
     console.log(descriptor);
 });
 ```
+
+## Tutorial
+
+You can find a tutorial where the HOG features is used with an SVM classifier to classify road signs. [Here is the tutorial](https://github.com/jajoe/tutorial-nodejs/tree/master/image-classification).
 
 ## License
 
