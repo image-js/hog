@@ -7,6 +7,11 @@
 
 The main feature of this repository will compute the [HOG features](https://en.wikipedia.org/wiki/Histogram_of_oriented_gradients) of an image. The HOG features (called HOG descriptor too) are useful for image recognition and image detection. You can find a good tutorial about HOG features [here](http://mccormickml.com/2013/05/09/hog-person-detector-tutorial/).
 
+## Installation
+
+```sh
+npm install hog-features -S
+```
 
 ## Usage
 
@@ -36,7 +41,7 @@ __options__
 const {Image} = require('image-js');
 const hog = require('hog-features');
 
-var file = __dirname + '/__test__/beachball.png';
+const file = __dirname + '/__test__/beachball.png';
 
 Image.load(file).then(function (image) {
     var descriptor = hog.extractHOG(image);
