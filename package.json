@@ -18,7 +18,7 @@
     "testonly": "jest"
   },
   "dependencies": {
-    "image-js": "^0.11.5",
+    "image-js": "^0.15.0",
     "ml-distance": "^2.1.1"
   },
   "devDependencies": {
