@@ -1,3 +1,8 @@
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/image-js/hog/compare/v0.1.0...v0.2.0) (2018-03-23)
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://github.com/image-js/hog/compare/v0.0.3...v0.1.0) (2017-12-11)
 
