@@ -18,14 +18,15 @@
     "testonly": "jest"
   },
   "dependencies": {
-    "image-js": "^0.20.0",
+    "image-js": "^0.21.0",
     "ml-distance": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^4.1.1",
     "eslint-config-cheminfo": "^1.6.0",
-    "eslint-plugin-no-only-tests": "^2.0.0",
-    "jest": "^20.0.4",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "jest": "^22.4.4",
     "npm-run-all": "^4.0.2"
   },
   "keywords": [
