@@ -12,20 +12,17 @@
     "url": "https://github.com/image-js/hog"
   },
   "scripts": {
-    "eslint": "eslint src",
+    "eslint": "eslint src __tests__",
     "eslint-fix": "npm run eslint -- --fix",
     "test": "run-s testonly eslint",
     "testonly": "jest"
-  },
-  "dependencies": {
-    "image-js": "^0.21.0",
-    "ml-distance": "^2.1.1"
   },
   "devDependencies": {
     "eslint": "^4.1.1",
     "eslint-config-cheminfo": "^1.6.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^21.15.1",
+    "image-js": "^0.21.0",
     "jest": "^22.4.4",
     "npm-run-all": "^4.0.2"
   },
